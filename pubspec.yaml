@@ -1,0 +1,14 @@
+name: msw_video_app
+description: MSW Video App - Full Skeleton
+publish_to: 'none'
+version: 1.0.0+1
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+dependencies:
+  flutter:
+    sdk: flutter
+  firebase_core: ^2.20.0
+  firebase_auth: ^4.4.0
+  cloud_firestore: ^4.8.0
+  firebase_storage: ^11.0.0
+  video_player: ^2.6.0
