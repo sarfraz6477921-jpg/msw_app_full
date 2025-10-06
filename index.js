@@ -1,10 +1,13 @@
-import Head from 'next/head';
-export default function Home(){
-  return (
-    <div style={{background:'#000', color:'#fff', minHeight:'100vh', padding:24}}>
-      <Head><title>MSW Video App</title></Head>
-      <h1>MSW Video App — Web</h1>
-      <p>Run <code>inject_keys.sh</code> to add Firebase config, then start the app.</p>
-    </div>
-  );
-}
+const functions = require('firebase-functions');
+const admin = require('firebase-admin');
+admin.initializeApp();
+
+exports.hello = functions.https.onRequest((req, res) => {
+  res.send('MSW Video App Functions OK');
+});
+
+exports.onComment = functions.firestore.document('comments/{id}').onCreate(async (snap, ctx) => {
+  const data = snap.data();
+  // placeholder: send notification to video owner
+  console.log('New comment for video', data.videoId);
+});
